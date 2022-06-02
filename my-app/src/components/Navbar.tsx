@@ -8,6 +8,9 @@ const Navbar = ({title =""}) =>{
          {title}
         </h1>
         <ul>
+        <li>
+            <Link to='/products'>Product</Link>
+            </li>
             <li>
             <Link to='/widgets'>Widgets</Link>
             </li>

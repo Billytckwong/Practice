@@ -3,8 +3,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './Application.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Products from './components/Products';
 import Widgets from './components/Widgets';
 import Wudgets from './components/Wudgets';
+const productprods=[
+    {name: 'Phone Sam', price:'$1sdasd.00'},
+    {name: 'Phone Sam', price:'$115.00'},
+    {name: 'Phone Sam', price:'$150.00'},
+    {name: 'Phone Sam', price:'$135.00'}
+  ]
 const widgetprods=[
   {name: 'Master Widget', price:'$125.00'},
   {name: 'Sub Widget', price:'$115.00'},
@@ -25,6 +32,17 @@ const Application =()=>{
           <div className='container'>
             <Switch>
               <Route exact path='/' component={Home} /> 
+              <Route
+                exact
+                path='/Products'
+                render={(props)=>
+                  <Fragment>
+                
+                    <Products prods={productprods}/>
+                  
+                  </Fragment>
+                }
+              />
               <Route
                 exact
                 path='/Widgets'
