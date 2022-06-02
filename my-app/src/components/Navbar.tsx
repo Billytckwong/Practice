@@ -12,12 +12,6 @@ const Navbar = ({title =""}) =>{
             <Link to='/products'>Product</Link>
             </li>
             <li>
-            <Link to='/widgets'>Widgets</Link>
-            </li>
-            <li>
-            <Link to='/wudgets'>Wudgets</Link>
-            </li>
-            <li>
             <Link to='/'>Home</Link>
             </li>
         </ul>
