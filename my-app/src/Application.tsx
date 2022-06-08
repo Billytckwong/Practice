@@ -1,45 +1,30 @@
-import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './Application.css';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './scss/Application.css';
 import Data from './data.json';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Products from './components/Products';
 import Product from './components/Product';
-
-const productprods=[
-   {name: 'Phone Sam', price:'$1sdasd.00'},
-   {name: 'Phone Sam', price:'$115.00'},
-   {name: 'Phone Sam', price:'$150.00'},
-   {name: 'Phone Sam', price:'$135.00'}
-  ]
-
-  class Products extends React.Component {
-    constructor(props: any) {
-        super(props);
-        this.state = {}
-    }
-
-
+import './components/popup';
 
 function Application() {
+    const [selectItemData, setSelect] = useState<any>([]);
+    const select = [selectItemData, setSelect];
+
+    useEffect(() => {
+        console.log(selectItemData);
+    }, [selectItemData]);
+
     return (
         <Router>
-            <div className='App'>
-                <Navbar />
-                <div className='container'>
-                    <Switch>
-                        <Route exact path='/' component={Home} />
-                        <Route
-                            exact
-                            path='/Products'
-                            render={(props) => <Fragment>
-
-                                <Products prods={productprods} />
-
-                            </Fragment>} />
-
-                    </Switch>
+            <div className="App">
+                <Navbar selectItemData={selectItemData} />
+                <div className="shopping-cart"></div>
+                <div className="container">
+                    <div className="product-box">
+                        {Data.products.map((product, i) => (
+                            <Product key={i} product={product} select={select} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </Router>
